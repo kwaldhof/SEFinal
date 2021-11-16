@@ -11,9 +11,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
+
+
 class Ui_CreateLeague(object):
+    def returnMain(self):
+
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Leagues()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("LeagueCreator")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -70,7 +79,7 @@ class Ui_CreateLeague(object):
         self.createLeague = QtWidgets.QPushButton(self.centralwidget)
         self.createLeague.setGeometry(QtCore.QRect(410, 250, 75, 23))
         self.createLeague.setObjectName("createLeague")
-        self.returnMain = QtWidgets.QPushButton(self.centralwidget)
+        self.returnMain = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.returnMain())
         self.returnMain.setGeometry(QtCore.QRect(260, 250, 75, 23))
         self.returnMain.setObjectName("returnMain")
         MainWindow.setCentralWidget(self.centralwidget)
