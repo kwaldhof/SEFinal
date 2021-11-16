@@ -79,7 +79,7 @@ class Ui_CreateLeague(object):
         self.createLeague = QtWidgets.QPushButton(self.centralwidget)
         self.createLeague.setGeometry(QtCore.QRect(410, 250, 75, 23))
         self.createLeague.setObjectName("createLeague")
-        self.returnMain = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.returnMain())
+        self.returnMain = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
         self.returnMain.setGeometry(QtCore.QRect(260, 250, 75, 23))
         self.returnMain.setObjectName("returnMain")
         MainWindow.setCentralWidget(self.centralwidget)
