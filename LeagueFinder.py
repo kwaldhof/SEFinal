@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_JoinLeague(object):
+class Ui_LeagueFinder(object):
     def setupUi(self, JoinLeague):
         JoinLeague.setObjectName("JoinLeague")
         JoinLeague.resize(800, 600)
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     JoinLeague = QtWidgets.QMainWindow()
-    ui = Ui_JoinLeague()
+    ui = Ui_LeagueFinder()
     ui.setupUi(JoinLeague)
     JoinLeague.show()
     sys.exit(app.exec_())

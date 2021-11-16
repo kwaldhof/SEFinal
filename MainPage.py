@@ -11,6 +11,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from LeagueCreator import Ui_CreateLeague
+from LeagueFinder import Ui_LeagueFinder
+
 
 
 class Ui_Leagues(object):
@@ -20,6 +22,13 @@ class Ui_Leagues(object):
         self.ui = Ui_CreateLeague()
         self.ui.setupUi(self.window)
         self.window.show()
+
+    def openLeagueFinder(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeagueFinder()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
 
     def setupUi(self, L):
         L.setObjectName("L")
@@ -39,7 +48,7 @@ class Ui_Leagues(object):
         self.label.setText("")
         self.label.setObjectName("label")
         # button
-        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget)
+        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
         self.LeagueJoiner.setGeometry(QtCore.QRect(340, 270, 101, 31))
         self.LeagueJoiner.setFixedSize(120,20)
         self.LeagueJoiner.setObjectName("LeagueJoiner")
