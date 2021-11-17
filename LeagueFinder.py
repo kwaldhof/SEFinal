@@ -11,24 +11,30 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_JoinLeague(object):
+class Ui_LeagueFinder(object):
     def setupUi(self, JoinLeague):
         JoinLeague.setObjectName("JoinLeague")
         JoinLeague.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(JoinLeague)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(290, 240, 171, 80))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(290, 240, 171, 82))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.lineEdit.setObjectName("lineEdit")
-        self.verticalLayout.addWidget(self.lineEdit)
-        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
+        self.CodeEntry = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.CodeEntry.setObjectName("CodeEntry")
+        self.verticalLayout.addWidget(self.CodeEntry)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.BackBut = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: JoinLeague.close())
+        self.BackBut.setObjectName("BackBut")
+        self.horizontalLayout.addWidget(self.BackBut)
+        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.Search.setObjectName("Search")
+        self.horizontalLayout.addWidget(self.Search)
+        self.verticalLayout.addLayout(self.horizontalLayout)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(290, 200, 171, 31))
         font = QtGui.QFont()
@@ -50,7 +56,8 @@ class Ui_JoinLeague(object):
     def retranslateUi(self, JoinLeague):
         _translate = QtCore.QCoreApplication.translate
         JoinLeague.setWindowTitle(_translate("JoinLeague", "MainWindow"))
-        self.pushButton.setText(_translate("JoinLeague", "Search"))
+        self.BackBut.setText(_translate("JoinLeague", "Back"))
+        self.Search.setText(_translate("JoinLeague", "Search"))
         self.label.setText(_translate("JoinLeague", "Enter League Code"))
 
 
@@ -58,7 +65,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     JoinLeague = QtWidgets.QMainWindow()
-    ui = Ui_JoinLeague()
+    ui = Ui_LeagueFinder()
     ui.setupUi(JoinLeague)
     JoinLeague.show()
     sys.exit(app.exec_())

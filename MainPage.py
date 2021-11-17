@@ -10,20 +10,37 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from LeagueCreator import Ui_CreateLeague
+from LeagueFinder import Ui_LeagueFinder
+
+
 
 class Ui_Leagues(object):
+    def openLeagueCreator(self):
 
-    def x(self):
-        print("XXXX")
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CreateLeague()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openLeagueFinder(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeagueFinder()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
     def setupUi(self, L):
         L.setObjectName("L")
         L.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(L)
         self.centralwidget.setObjectName("centralwidget")
-        self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget)
-        self.LeagueMaker.setGeometry(QtCore.QRect(340, 180, 101, 31))
-        self.LeagueMaker.setFixedSize(120,20)
-        # self.LeagueMaker.adjustSize()
+        self.centralwidget.setFixedSize(800, 600)
+        windowwidth = self.centralwidget.width()
+        windowheight = self.centralwidget.height()
+        self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget,  clicked = lambda: self.openLeagueCreator())
+        self.LeagueMaker.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 180, int(windowwidth*0.2), int(windowheight*0.06)))
+        # self.LeagueMaker.setSizePolicy()
         self.LeagueMaker.setObjectName("LeagueMaker")
         self.LeagueViewer = QtWidgets.QPushButton(self.centralwidget)
         self.LeagueViewer.setGeometry(QtCore.QRect(340, 360, 101, 31))
@@ -34,11 +51,10 @@ class Ui_Leagues(object):
         self.label.setText("")
         self.label.setObjectName("label")
         # button
-        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget)
+        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
         self.LeagueJoiner.setGeometry(QtCore.QRect(340, 270, 101, 31))
         self.LeagueJoiner.setFixedSize(120,20)
         self.LeagueJoiner.setObjectName("LeagueJoiner")
-        self.LeagueJoiner.clicked.connect(self.x)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(310, 100, 171, 41))
         font = QtGui.QFont()
