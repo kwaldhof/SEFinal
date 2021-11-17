@@ -23,6 +23,7 @@ class Ui_Leagues(object):
         self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget)
         self.LeagueMaker.setGeometry(QtCore.QRect(340, 180, 101, 31))
         self.LeagueMaker.setFixedSize(120,20)
+        # self.LeagueMaker.adjustSize()
         self.LeagueMaker.setObjectName("LeagueMaker")
         self.LeagueViewer = QtWidgets.QPushButton(self.centralwidget)
         self.LeagueViewer.setGeometry(QtCore.QRect(340, 360, 101, 31))
