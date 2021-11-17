@@ -14,12 +14,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_CreateLeague(object):
-    def returnMain(self):
-
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Leagues()
-        self.ui.setupUi(self.window)
-        self.window.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("LeagueCreator")
