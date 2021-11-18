@@ -55,10 +55,9 @@ class Ui_Leagues(object):
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
         self.LeagueJoiner.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 270, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueJoiner.setObjectName("LeagueJoiner")
-
         #IM Made Ez Label
         self.Name_Label = QtWidgets.QLabel(self.centralwidget)
-        self.Name_Label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.15/2), 100, int(windowwidth*0.2), int(windowheight*0.06)))
+        self.Name_Label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 100, int(windowwidth*0.2), int(windowheight*0.06)))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
