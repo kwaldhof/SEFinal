@@ -38,31 +38,33 @@ class Ui_Leagues(object):
         self.centralwidget.setFixedSize(800, 600)
         windowwidth = self.centralwidget.width()
         windowheight = self.centralwidget.height()
+        #LeagueMaker Button
         self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget,  clicked = lambda: self.openLeagueCreator())
         self.LeagueMaker.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 180, int(windowwidth*0.2), int(windowheight*0.06)))
-        # self.LeagueMaker.setSizePolicy()
         self.LeagueMaker.setObjectName("LeagueMaker")
+        #LeagueViewer Button
         self.LeagueViewer = QtWidgets.QPushButton(self.centralwidget)
-        self.LeagueViewer.setGeometry(QtCore.QRect(340, 360, 101, 31))
-        self.LeagueViewer.setFixedSize(120,20)
+        self.LeagueViewer.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 360, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueViewer.setObjectName("LeagueViewer")
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(320, 110, 101, 41))
         self.label.setText("")
         self.label.setObjectName("label")
-        # button
+        # LeagueJoiner_button
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
-        self.LeagueJoiner.setGeometry(QtCore.QRect(340, 270, 101, 31))
-        self.LeagueJoiner.setFixedSize(120,20)
+        self.LeagueJoiner.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 270, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueJoiner.setObjectName("LeagueJoiner")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(310, 100, 171, 41))
+
+        #IM Made Ez Label
+        self.Name_Label = QtWidgets.QLabel(self.centralwidget)
+        self.Name_Label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.15/2), 100, int(windowwidth*0.2), int(windowheight*0.06)))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
+        self.Name_Label.setFont(font)
+        self.Name_Label.setObjectName("label_2")
         L.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(L)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -81,7 +83,7 @@ class Ui_Leagues(object):
         self.LeagueMaker.setText(_translate("L", "Create a League"))
         self.LeagueViewer.setText(_translate("L", "View a League"))
         self.LeagueJoiner.setText(_translate("L", "Join a League"))
-        self.label_2.setText(_translate("L", "IM Made EZ"))
+        self.Name_Label.setText(_translate("L", "IM Made EZ"))
 
 
 if __name__ == "__main__":
