@@ -11,18 +11,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from CodeShare import Ui_CodeShare
-from LeagueCreator import LeagueConfirm
 
 
 class Ui_LeagueView(object):
     def openCodeViewer(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CodeShare()
-        self.ui.setupUi(self.window)
-        self.window.show()
-    def openMain(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = LeagueConfirm()
         self.ui.setupUi(self.window)
         self.window.show()
     def setupUi(self, LeagueView):
