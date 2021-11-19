@@ -10,9 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from LeagueConfirmation import Ui_LeagueConfirm
-
-
+from LeagueView import Ui_LeagueView
 
 
 class Ui_CreateLeague(object):
@@ -128,6 +126,11 @@ if __name__ == "__main__":
 
 class Ui_LeagueConfirm(object):
 
+    def openLeagueView(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeagueView()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def setupUi(self, LeagueConfirm):
         LeagueConfirm.setObjectName("LeagueConfirm")
@@ -166,7 +169,7 @@ class Ui_LeagueConfirm(object):
         font.setPointSize(12)
         self.Password.setFont(font)
         self.Password.setObjectName("Password")
-        self.ConfirmBut = QtWidgets.QPushButton(self.centralwidget)
+        self.ConfirmBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueView())
         self.ConfirmBut.setGeometry(QtCore.QRect(390, 270, 75, 23))
         self.ConfirmBut.setObjectName("ConfirmBut")
         self.BackBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: LeagueConfirm.close())
