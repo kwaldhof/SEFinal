@@ -9,7 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 from LeagueCreator import Ui_CreateLeague
 from LeagueFinder import Ui_LeagueFinder
 
@@ -47,9 +49,14 @@ class Ui_Leagues(object):
         self.LeagueViewer.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 360, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueViewer.setObjectName("LeagueViewer")
 
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(320, 110, 101, 41))
-        self.label.setText("")
+        self.label.setFont(font)
+        self.label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 450, 300, 100))
+        self.label.setText("System Player \nOur Software Has No Ads")
         self.label.setObjectName("label")
         # LeagueJoiner_button
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
