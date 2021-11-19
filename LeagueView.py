@@ -10,8 +10,21 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from CodeShare import Ui_CodeShare
+from LeagueCreator import LeagueConfirm
+
 
 class Ui_LeagueView(object):
+    def openCodeViewer(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CodeShare()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openMain(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = LeagueConfirm()
+        self.ui.setupUi(self.window)
+        self.window.show()
     def setupUi(self, LeagueView):
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(800, 600)
@@ -23,7 +36,7 @@ class Ui_LeagueView(object):
         font.setPointSize(20)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        self.InvitePlayers = QtWidgets.QPushButton(self.centralwidget)
+        self.InvitePlayers = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openCodeViewer())
         self.InvitePlayers.setGeometry(QtCore.QRect(640, 20, 131, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
