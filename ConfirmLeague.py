@@ -10,8 +10,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from LeagueView import Ui_LeagueView
 
-class Ui_MainWindow(object):
+
+class Ui_ConfirmLeague(object):
+    def openLeagueView(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeagueView()
+        self.ui.setupUi(self.window)
+        self.window.show()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -31,10 +38,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.YesBut = QtWidgets.QPushButton(self.centralwidget)
+        self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueView())
         self.YesBut.setGeometry(QtCore.QRect(390, 200, 75, 23))
         self.YesBut.setObjectName("YesBut")
-        self.NoBut = QtWidgets.QPushButton(self.centralwidget)
+        self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
         self.NoBut.setGeometry(QtCore.QRect(290, 200, 75, 23))
         self.NoBut.setObjectName("NoBut")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -62,7 +69,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_ConfirmLeague()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

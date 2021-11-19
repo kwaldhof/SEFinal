@@ -10,8 +10,16 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from ConfirmLeague import Ui_ConfirmLeague
+
 
 class Ui_LeagueFinder(object):
+    def openConfirmLeague(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_ConfirmLeague()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, JoinLeague):
         JoinLeague.setObjectName("JoinLeague")
         JoinLeague.resize(800, 600)
@@ -31,7 +39,7 @@ class Ui_LeagueFinder(object):
         self.BackBut = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: JoinLeague.close())
         self.BackBut.setObjectName("BackBut")
         self.horizontalLayout.addWidget(self.BackBut)
-        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.openConfirmLeague())
         self.Search.setObjectName("Search")
         self.horizontalLayout.addWidget(self.Search)
         self.verticalLayout.addLayout(self.horizontalLayout)
