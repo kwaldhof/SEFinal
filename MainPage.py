@@ -56,8 +56,8 @@ class Ui_Leagues(object):
         font.setWeight(75)
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setFont(font)
-        self.label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 450, 300, 100))
-        self.label.setText("System Player \nOur Software Has No Ads")
+        self.label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.4/2), 450, 350, 100))
+        self.label.setText("        System Players \nOur Software Has No Ads")
         self.label.setObjectName("label")
         # LeagueJoiner_button
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: Ui_Leagues.window.hide())
