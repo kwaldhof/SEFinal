@@ -10,13 +10,13 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from LeagueView import Ui_LeagueView
+from PlayerSignup import Ui_PlayerSignup
 
 
 class Ui_ConfirmLeague(object):
-    def openLeagueView(self):
+    def openPlayerSignup(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_LeagueView()
+        self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window)
         self.window.show()
     def setupUi(self, MainWindow):
@@ -38,7 +38,7 @@ class Ui_ConfirmLeague(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueView())
+        self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openPlayerSignup())
         self.YesBut.setGeometry(QtCore.QRect(390, 200, 75, 23))
         self.YesBut.setObjectName("YesBut")
         self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())

@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from AdminLogin import Ui_AdminLogin
 
 from CodeShare import Ui_CodeShare
 
@@ -17,6 +18,11 @@ class Ui_LeagueView(object):
     def openCodeViewer(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CodeShare()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openAdminLogin(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_AdminLogin()
         self.ui.setupUi(self.window)
         self.window.show()
     def setupUi(self, LeagueView):
@@ -72,7 +78,7 @@ class Ui_LeagueView(object):
         font.setPointSize(12)
         self.CreateTeam.setFont(font)
         self.CreateTeam.setObjectName("CreateTeam")
-        self.Admin = QtWidgets.QPushButton(self.centralwidget)
+        self.Admin = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openAdminLogin())
         self.Admin.setGeometry(QtCore.QRect(120, 60, 71, 31))
         font = QtGui.QFont()
         font.setPointSize(12)

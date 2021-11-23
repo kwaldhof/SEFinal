@@ -10,8 +10,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from LeagueView import Ui_LeagueView
 
-class Ui_MainWindow(object):
+
+class Ui_PlayerSignup(object):
+    def openLeagueView(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_LeagueView()
+        self.ui.setupUi(self.window)
+        self.window.show()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -57,12 +64,12 @@ class Ui_MainWindow(object):
         self.Age = QtWidgets.QSpinBox(self.centralwidget)
         self.Age.setGeometry(QtCore.QRect(340, 200, 42, 22))
         self.Age.setObjectName("Age")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(270, 290, 75, 23))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(380, 290, 75, 23))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.Back = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
+        self.Back.setGeometry(QtCore.QRect(270, 290, 75, 23))
+        self.Back.setObjectName("Back")
+        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openLeagueView())
+        self.Confirm.setGeometry(QtCore.QRect(380, 290, 75, 23))
+        self.Confirm.setObjectName("Confirm")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -85,15 +92,15 @@ class Ui_MainWindow(object):
         self.GenderEntry.setItemText(0, _translate("MainWindow", "Female"))
         self.GenderEntry.setItemText(1, _translate("MainWindow", "Male"))
         self.GenderEntry.setItemText(2, _translate("MainWindow", "Non-Binary"))
-        self.pushButton.setText(_translate("MainWindow", "Back"))
-        self.pushButton_2.setText(_translate("MainWindow", "Confirm"))
+        self.Back.setText(_translate("MainWindow", "Back"))
+        self.Confirm.setText(_translate("MainWindow", "Confirm"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_PlayerSignup()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
