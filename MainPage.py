@@ -60,7 +60,6 @@ class Ui_Leagues(object):
         self.label.setText("        System Players \nOur Software Has No Ads")
         self.label.setObjectName("label")
         # LeagueJoiner_button
-        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: Ui_Leagues.window.hide())
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
         self.LeagueJoiner.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 270, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueJoiner.setObjectName("LeagueJoiner")
