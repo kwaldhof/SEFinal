@@ -19,6 +19,7 @@ class Ui_ConfirmLeague(object):
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window)
         self.window.show()
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)

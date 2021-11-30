@@ -20,17 +20,18 @@ from LeagueFinder import Ui_LeagueFinder
 
 class Ui_Leagues(object):
     def openLeagueCreator(self):
-
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreateLeague()
         self.ui.setupUi(self.window)
         self.window.show()
+        L.hide()
 
     def openLeagueFinder(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueFinder()
         self.ui.setupUi(self.window)
         self.window.show()
+        L.hide()
 
 
     def setupUi(self, L):
@@ -59,6 +60,7 @@ class Ui_Leagues(object):
         self.label.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.4/2), 450, 350, 100))
         self.label.setText("        System Players \nOur Software Has No Ads")
         self.label.setObjectName("label")
+
         # LeagueJoiner_button
         self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
         self.LeagueJoiner.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 270, int(windowwidth*0.2), int(windowheight*0.06)))
