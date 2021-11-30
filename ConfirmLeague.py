@@ -12,13 +12,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from PlayerSignup import Ui_PlayerSignup
 
-
 class Ui_ConfirmLeague(object):
     def openPlayerSignup(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -52,7 +52,6 @@ class Ui_ConfirmLeague(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
