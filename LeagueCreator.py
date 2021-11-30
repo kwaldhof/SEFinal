@@ -134,6 +134,7 @@ class Ui_LeagueConfirm(object):
         self.create_league()
         
     def create_league(self):
+        
         league_Name = str(Ui_CreateLeague.leagueName.text())
         sport = str(Ui_CreateLeague.selectedSport.currentText())
         Ad_username = str(Ui_CreateLeague.userName.text())
