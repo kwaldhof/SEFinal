@@ -11,14 +11,23 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from LeagueView import Ui_LeagueView
-
+import Backend
 
 class Ui_CreateLeague(object):
     def LeagueConfirmation(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_LeagueConfirm()
-        self.ui.setupUi(self.window)
-        self.window.show()
+        # self.league_Name = str(self.leagueName.text())
+        # self.sport = str(self.selectedSport.currentText())
+        self.Ad_username = str(self.userName.text())
+        self.Ad_pw = str(self.password.text())
+        check = Backend.check_aduser(self.Ad_username,self.Ad_pw)
+        if check == True:
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_LeagueConfirm()
+            self.ui.setupUi(self.window)
+            self.window.show()
+        else:
+            self.info1.setText("Please check the Username and Password")
+            print(check)
         
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("LeagueCreator")
@@ -76,6 +85,15 @@ class Ui_CreateLeague(object):
         font.setPointSize(12)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
+        #info label
+        self.info1 = QtWidgets.QLabel(self.centralwidget)
+        self.info1.setGeometry(QtCore.QRect(249, 280, 121, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.info1.setFont(font)
+        self.info1.setObjectName("label_5")
+
+
         self.createLeague = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.LeagueConfirmation())
         self.createLeague.setGeometry(QtCore.QRect(410, 250, 75, 23))
         self.createLeague.setObjectName("createLeague")
@@ -110,7 +128,7 @@ class Ui_CreateLeague(object):
         self.label_5.setText(_translate("MainWindow", "Admin Password"))
         self.createLeague.setText(_translate("MainWindow", "Done"))
         self.returnMain.setText(_translate("MainWindow", "Back"))
-
+        self.info1.setText(_translate("MainWindow", ""))
 
 if __name__ == "__main__":
     import sys
@@ -134,12 +152,8 @@ class Ui_LeagueConfirm(object):
         self.create_league()
         
     def create_league(self):
+        print("xxxxx")
         
-        league_Name = str(Ui_CreateLeague.leagueName.text())
-        sport = str(Ui_CreateLeague.selectedSport.currentText())
-        Ad_username = str(Ui_CreateLeague.userName.text())
-        Ad_pw = str(Ui_CreateLeague.password.text())
-        print(league_Name,sport,Ad_username,Ad_pw)
         # return None
 
     def setupUi(self, LeagueConfirm):
@@ -179,6 +193,14 @@ class Ui_LeagueConfirm(object):
         font.setPointSize(12)
         self.Password.setFont(font)
         self.Password.setObjectName("Password")
+        # info label
+        self.info = QtWidgets.QLabel(self.centralwidget)
+        self.info.setGeometry(QtCore.QRect(260, 320, 361, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.info.setFont(font)
+        self.info.setObjectName("info")
+
         self.ConfirmBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueView())
         self.ConfirmBut.setGeometry(QtCore.QRect(390, 270, 75, 23))
         self.ConfirmBut.setObjectName("ConfirmBut")
@@ -207,6 +229,8 @@ class Ui_LeagueConfirm(object):
         self.Password.setText(_translate("LeagueConfirm", "Admin Password: "+ Ui_CreateLeague.password.text()))
         self.ConfirmBut.setText(_translate("LeagueConfirm", "Confirm"))
         self.BackBut.setText(_translate("LeagueConfirm", "Back"))
+        self.info.setText(_translate("LeagueConfirm", "info"))
+
 
 
 if __name__ == "__main__":
