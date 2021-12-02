@@ -27,11 +27,12 @@ class Ui_Leagues(object):
         L.hide()
 
 
-    def openLeagueFinder(self):
+    def openLeagueFinder(self, main_w):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueFinder()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window, main_w)
         self.window.show()
+        L.hide()
 
 
     def setupUi(self, L):
@@ -63,7 +64,7 @@ class Ui_Leagues(object):
         self.label.setObjectName("label")
 
         # LeagueJoiner_button
-        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder())
+        self.LeagueJoiner = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openLeagueFinder(L))
         self.LeagueJoiner.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 270, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueJoiner.setObjectName("LeagueJoiner")
         #IM Made Ez Label

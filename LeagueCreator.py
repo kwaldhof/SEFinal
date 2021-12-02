@@ -9,9 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from LeagueView import Ui_LeagueView
 import Backend
+
 
 class Ui_CreateLeague(object):
     def LeagueConfirmation(self, L, LeagueCreator):

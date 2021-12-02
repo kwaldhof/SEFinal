@@ -12,15 +12,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from ConfirmLeague import Ui_ConfirmLeague
 
-
 class Ui_LeagueFinder(object):
-    def openConfirmLeague(self):
+    def openConfirmLeague(self, L, JoinLeague):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ConfirmLeague()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window,L,JoinLeague)
         self.window.show()
 
-    def setupUi(self, JoinLeague):
+    def back_main(self, L, JoinLeague):
+        L.show()
+        JoinLeague.hide()
+
+    def setupUi(self, JoinLeague, L):
         JoinLeague.setObjectName("JoinLeague")
         JoinLeague.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(JoinLeague)
@@ -36,10 +39,10 @@ class Ui_LeagueFinder(object):
         self.verticalLayout.addWidget(self.CodeEntry)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.BackBut = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: JoinLeague.close())
+        self.BackBut = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.back_main(L,JoinLeague))
         self.BackBut.setObjectName("BackBut")
         self.horizontalLayout.addWidget(self.BackBut)
-        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.openConfirmLeague())
+        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.openConfirmLeague(L,JoinLeague))
         self.Search.setObjectName("Search")
         self.horizontalLayout.addWidget(self.Search)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -67,7 +70,6 @@ class Ui_LeagueFinder(object):
         self.BackBut.setText(_translate("JoinLeague", "Back"))
         self.Search.setText(_translate("JoinLeague", "Search"))
         self.label.setText(_translate("JoinLeague", "Enter League Code"))
-
 
 if __name__ == "__main__":
     import sys
