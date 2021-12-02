@@ -12,49 +12,49 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_CodeShare(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def setupUi(self, CodeShare):
+        CodeShare.setObjectName("CodeShare")
+        CodeShare.resize(457, 208)
+        self.centralwidget = QtWidgets.QWidget(CodeShare)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(210, 140, 411, 71))
+        self.label.setGeometry(QtCore.QRect(20, 20, 411, 71))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.JoinCode = QtWidgets.QLabel(self.centralwidget)
-        self.JoinCode.setGeometry(QtCore.QRect(350, 210, 131, 51))
+        self.JoinCode.setGeometry(QtCore.QRect(160, 100, 131, 51))
         font = QtGui.QFont()
         font.setPointSize(25)
         font.setBold(True)
         font.setWeight(75)
         self.JoinCode.setFont(font)
         self.JoinCode.setObjectName("JoinCode")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        CodeShare.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(CodeShare)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 457, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        CodeShare.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(CodeShare)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        CodeShare.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(CodeShare)
+        QtCore.QMetaObject.connectSlotsByName(CodeShare)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, CodeShare):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Share this code with your players:"))
-        self.JoinCode.setText(_translate("MainWindow", "153267"))
+        CodeShare.setWindowTitle(_translate("CodeShare", "CodeShare"))
+        self.label.setText(_translate("CodeShare", "Share this code with your players:"))
+        self.JoinCode.setText(_translate("CodeShare", "153267"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
+    CodeShare = QtWidgets.QCodeShare()
     ui = Ui_CodeShare()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui.setupUi(CodeShare)
+    CodeShare.show()
     sys.exit(app.exec_())
