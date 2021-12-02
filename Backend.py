@@ -16,7 +16,21 @@ def check_aduser (user_name,user_password):
     else:
         return False
 
+def create_league(League_name,sport,user_name,user_password):
+    writer = pd.ExcelWriter('Data1.xlsx', engine='xlsxwriter')
+    df = pd.DataFrame({'League_ID': [1],
+                   'League_Name': [League_name],
+                   'Organizer':[2],
+                   'Sport':[sport],
+                   'Games':[2]})
+    df.to_excel(writer, sheet_name="League", index=3)
+    worksheet = writer.sheets['League']
+    # Close writer
+    writer.close()
+
 # print(check_aduser("Smitty101",123456))
+
+create_league("WAC","Football",1212,1212)
 
 
 
