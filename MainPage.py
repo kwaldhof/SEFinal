@@ -19,19 +19,19 @@ from LeagueFinder import Ui_LeagueFinder
 
 
 class Ui_Leagues(object):
-    def openLeagueCreator(self):
+    def openLeagueCreator(self, main_w):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreateLeague()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window,main_w)
         self.window.show()
         L.hide()
+
 
     def openLeagueFinder(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueFinder()
         self.ui.setupUi(self.window)
         self.window.show()
-        L.hide()
 
 
     def setupUi(self, L):
@@ -43,7 +43,7 @@ class Ui_Leagues(object):
         windowwidth = self.centralwidget.width()
         windowheight = self.centralwidget.height()
         #LeagueMaker Button
-        self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget,  clicked = lambda: self.openLeagueCreator())
+        self.LeagueMaker = QtWidgets.QPushButton(self.centralwidget,  clicked = lambda: self.openLeagueCreator(L))
         self.LeagueMaker.setGeometry(QtCore.QRect(int(windowwidth/2)-(windowwidth*0.2/2), 180, int(windowwidth*0.2), int(windowheight*0.06)))
         self.LeagueMaker.setObjectName("LeagueMaker")
         #LeagueViewer Button
