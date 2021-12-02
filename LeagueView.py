@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from AdminLogin import Ui_AdminLogin
 
 from CodeShare import Ui_CodeShare
+from JoinTeam import Ui_TeamJoiner
 
 
 class Ui_LeagueView(object):
@@ -23,6 +24,11 @@ class Ui_LeagueView(object):
     def openAdminLogin(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_AdminLogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openTeamJoiner(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_TeamJoiner()
         self.ui.setupUi(self.window)
         self.window.show()
     def setupUi(self, LeagueView):
@@ -225,6 +231,7 @@ class Ui_LeagueView(object):
         self.actionCreate_a_Team.setObjectName("actionCreate_a_Team")
         self.actionJoin_a_Team = QtWidgets.QAction(LeagueView)
         self.actionJoin_a_Team.setObjectName("actionJoin_a_Team")
+        self.actionJoin_a_Team.triggered.connect(self.openTeamJoiner)
         self.actionAdmin_Login = QtWidgets.QAction(LeagueView)
         self.actionAdmin_Login.setObjectName("actionAdmin_Login")
         self.actionAdmin_Login.triggered.connect(self.openAdminLogin)
