@@ -17,26 +17,31 @@ from JoinTeam import Ui_TeamJoiner
 
 
 class Ui_LeagueView(object):
+    
     def openCodeViewer(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CodeShare()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def openAdminLogin(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_AdminLogin()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def openTeamJoiner(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_TeamJoiner()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def openCreateTeam(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreateTeam()
         self.ui.setupUi(self.window)
         self.window.show()
+
     def setupUi(self, LeagueView):
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
