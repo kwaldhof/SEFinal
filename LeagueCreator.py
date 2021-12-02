@@ -149,10 +149,10 @@ if __name__ == "__main__":
 
 class Ui_LeagueConfirm(object):
 
-    def openLeagueView(self,L,LeagueConfirm):
+    def openLeagueView(self,main_w,LeagueConfirm):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueView()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window, main_w)
         self.window.show()
         LeagueConfirm.hide()
         self.create_league()

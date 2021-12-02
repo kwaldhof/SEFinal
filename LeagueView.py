@@ -17,27 +17,30 @@ from JoinTeam import Ui_TeamJoiner
 
 
 class Ui_LeagueView(object):
-    def openCodeViewer(self):
+    def openCodeViewer(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CodeShare()
         self.ui.setupUi(self.window)
         self.window.show()
-    def openAdminLogin(self):
+    def openAdminLogin(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_AdminLogin()
         self.ui.setupUi(self.window)
         self.window.show()
-    def openTeamJoiner(self):
+    def openTeamJoiner(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_TeamJoiner()
         self.ui.setupUi(self.window)
         self.window.show()
-    def openCreateTeam(self):
+    def openCreateTeam(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_CreateTeam()
         self.ui.setupUi(self.window)
         self.window.show()
-    def setupUi(self, LeagueView):
+    def back_main(self, L, LeagueView):
+        L.show()
+        LeagueView.hide()
+    def setupUi(self, LeagueView, L):
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
         font = QtGui.QFont()
@@ -245,8 +248,9 @@ class Ui_LeagueView(object):
         self.actionInvite_Players_to_League = QtWidgets.QAction("actionInvite_Players_to_League")
         self.actionInvite_Players_to_League.triggered.connect(self.openCodeViewer)
         self.actionInvite_Players_to_League.setObjectName("actionInvite_Players_to_League")
-        self.actionConfirm_Logout = QtWidgets.QAction(LeagueView)
+        self.actionConfirm_Logout = QtWidgets.QAction(LeagueView, triggered = lambda: self.back_main(L,LeagueView))
         self.actionConfirm_Logout.setObjectName("actionConfirm_Logout")
+        # self.actionConfirm_Logout.triggered.connect()
         self.menuJoin_a_Team.addAction(self.actionCreate_a_Team)
         self.menuJoin_a_Team.addAction(self.actionJoin_a_Team)
         self.menuJoin_a_Team.addAction(self.actionInvite_Players_to_League)
