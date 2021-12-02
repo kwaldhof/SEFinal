@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from AdminLogin import Ui_AdminLogin
 
 from CodeShare import Ui_CodeShare
+from CreateTeam import Ui_CreateTeam
+from JoinTeam import Ui_TeamJoiner
 
 
 class Ui_LeagueView(object):
@@ -23,6 +25,16 @@ class Ui_LeagueView(object):
     def openAdminLogin(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_AdminLogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openTeamJoiner(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_TeamJoiner()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openCreateTeam(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_CreateTeam()
         self.ui.setupUi(self.window)
         self.window.show()
     def setupUi(self, LeagueView):
@@ -223,18 +235,23 @@ class Ui_LeagueView(object):
         LeagueView.setStatusBar(self.statusbar)
         self.actionCreate_a_Team = QtWidgets.QAction(LeagueView)
         self.actionCreate_a_Team.setObjectName("actionCreate_a_Team")
+        self.actionCreate_a_Team.triggered.connect(self.openCreateTeam)
         self.actionJoin_a_Team = QtWidgets.QAction(LeagueView)
         self.actionJoin_a_Team.setObjectName("actionJoin_a_Team")
+        self.actionJoin_a_Team.triggered.connect(self.openTeamJoiner)
         self.actionAdmin_Login = QtWidgets.QAction(LeagueView)
         self.actionAdmin_Login.setObjectName("actionAdmin_Login")
         self.actionAdmin_Login.triggered.connect(self.openAdminLogin)
         self.actionInvite_Players_to_League = QtWidgets.QAction("actionInvite_Players_to_League")
         self.actionInvite_Players_to_League.triggered.connect(self.openCodeViewer)
         self.actionInvite_Players_to_League.setObjectName("actionInvite_Players_to_League")
+        self.actionConfirm_Logout = QtWidgets.QAction(LeagueView)
+        self.actionConfirm_Logout.setObjectName("actionConfirm_Logout")
         self.menuJoin_a_Team.addAction(self.actionCreate_a_Team)
         self.menuJoin_a_Team.addAction(self.actionJoin_a_Team)
         self.menuJoin_a_Team.addAction(self.actionInvite_Players_to_League)
         self.menuInvite_Players_to_League.addAction(self.actionAdmin_Login)
+        self.menuLogout.addAction(self.actionConfirm_Logout)
         self.menubar.addAction(self.menuJoin_a_Team.menuAction())
         self.menubar.addAction(self.menuInvite_Players_to_League.menuAction())
         self.menubar.addAction(self.menuLogout.menuAction())
@@ -361,6 +378,7 @@ class Ui_LeagueView(object):
         self.actionJoin_a_Team.setText(_translate("LeagueView", "Join a Team"))
         self.actionAdmin_Login.setText(_translate("LeagueView", "Admin Login"))
         self.actionInvite_Players_to_League.setText(_translate("LeagueView", "Invite Players to League"))
+        self.actionConfirm_Logout.setText(_translate("LeagueView", "Confirm Logout"))
 
 
 if __name__ == "__main__":
