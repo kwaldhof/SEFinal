@@ -26,7 +26,9 @@ def create_league(League_name,sport,user_name,user_password):
     wb = load_workbook(fname)
     ws = wb.worksheets[0]
     ws_tables = []
-    # for table in ws_tables:
+    for table in ws_tables:
+        ws_tables.append(table)
+        print(table.name)
     
 # print(check_aduser("Smitty101",123456))
 
