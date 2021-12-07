@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from ConfirmLeague import Ui_ConfirmLeague
+import Backend
 
 class Ui_LeagueFinder(object):
     def openConfirmLeague(self, L):
@@ -18,6 +19,8 @@ class Ui_LeagueFinder(object):
         self.ui = Ui_ConfirmLeague()
         self.ui.setupUi(self.window, L)
         print("xxx")
+        leagueName = Backend.codeReturn(str(self.CodeEntry.text()))
+        self.ui.label.setText(leagueName)
         self.window.show()
 
     def back_main(self, L, JoinLeague):
