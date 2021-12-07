@@ -17,6 +17,7 @@ class Ui_ConfirmLeague(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window, L)
+        self.ui.label.setText(str(self.label.text()))
         ConfirmLeague.hide()
         self.window.show()
         
