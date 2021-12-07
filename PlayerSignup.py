@@ -94,6 +94,7 @@ class Ui_PlayerSignup(object):
         self.GenderEntry.setItemText(2, _translate("MainWindow", "Non-Binary"))
         self.Back.setText(_translate("MainWindow", "Back"))
         self.Confirm.setText(_translate("MainWindow", "Confirm"))
+        self.label_2.adjustSize()
 
 
 if __name__ == "__main__":
