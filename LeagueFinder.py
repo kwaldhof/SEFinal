@@ -13,10 +13,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from ConfirmLeague import Ui_ConfirmLeague
 
 class Ui_LeagueFinder(object):
-    def openConfirmLeague(self, L, JoinLeague):
+    def openConfirmLeague(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ConfirmLeague()
-        self.ui.setupUi(self.window,L,JoinLeague)
+        self.ui.setupUi(self.window,L)
         self.window.show()
 
     def back_main(self, L, JoinLeague):
