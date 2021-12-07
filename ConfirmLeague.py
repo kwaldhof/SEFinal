@@ -13,13 +13,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PlayerSignup import Ui_PlayerSignup
 
 class Ui_ConfirmLeague(object):
-    def openPlayerSignup(self, L, ConfirmLeague):
+    def openPlayerSignup(self, ConfirmLeague, L):
         self.window = QtWidgets.QConfirmLeague()
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window, L, ConfirmLeague)
         self.window.show()
         
-    def back_main(self, L, ConfirmLeague):
+    def back_main(self, ConfirmLeague, L):
         L.show()
         ConfirmLeague.hide()
 
