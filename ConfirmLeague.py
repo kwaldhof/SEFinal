@@ -13,16 +13,20 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PlayerSignup import Ui_PlayerSignup
 
 class Ui_ConfirmLeague(object):
-    def openPlayerSignup(self):
-        self.window = QtWidgets.QMainWindow()
+    def openPlayerSignup(self, L, ConfirmLeague):
+        self.window = QtWidgets.QConfirmLeague()
         self.ui = Ui_PlayerSignup()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window, L, ConfirmLeague)
         self.window.show()
+        
+    def back_main(self, L, ConfirmLeague):
+        L.show()
+        ConfirmLeague.hide()
 
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+    def setupUi(self, ConfirmLeague, L):
+        ConfirmLeague.setObjectName("ConfirmLeague")
+        ConfirmLeague.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(ConfirmLeague)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(290, 130, 191, 31))
@@ -41,34 +45,34 @@ class Ui_ConfirmLeague(object):
         self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openPlayerSignup())
         self.YesBut.setGeometry(QtCore.QRect(390, 200, 75, 23))
         self.YesBut.setObjectName("YesBut")
-        self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
+        self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: ConfirmLeague.close())
         self.NoBut.setGeometry(QtCore.QRect(290, 200, 75, 23))
         self.NoBut.setObjectName("NoBut")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        ConfirmLeague.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(ConfirmLeague)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        ConfirmLeague.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(ConfirmLeague)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        ConfirmLeague.setStatusBar(self.statusbar)
+        self.retranslateUi(ConfirmLeague)
+        QtCore.QMetaObject.connectSlotsByName(ConfirmLeague)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, ConfirmLeague):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "League Name"))
-        self.label_2.setText(_translate("MainWindow", "Is this the correct league?"))
-        self.YesBut.setText(_translate("MainWindow", "Yes"))
-        self.NoBut.setText(_translate("MainWindow", "No"))
+        ConfirmLeague.setWindowTitle(_translate("ConfirmLeague", "ConfirmLeague"))
+        self.label.setText(_translate("ConfirmLeague", "League Name"))
+        self.label_2.setText(_translate("ConfirmLeague", "Is this the correct league?"))
+        self.YesBut.setText(_translate("ConfirmLeague", "Yes"))
+        self.NoBut.setText(_translate("ConfirmLeague", "No"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
+    ConfirmLeague = QtWidgets.QMainWindow()
     ui = Ui_ConfirmLeague()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui.setupUi(ConfirmLeague)
+    ConfirmLeague.show()
     sys.exit(app.exec_())

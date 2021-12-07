@@ -46,7 +46,7 @@ if __name__ == '__main__':
     # QGuiApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
     
     excel_file_path = 'Data1.xlsx'
-    worksheet_name = 'Team'
+    worksheet_name = 'Sheet1'
 
     app = QApplication(sys.argv)
     app.setStyleSheet('''
