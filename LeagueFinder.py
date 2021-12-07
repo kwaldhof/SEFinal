@@ -43,7 +43,7 @@ class Ui_LeagueFinder(object):
         self.BackBut = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.back_main(L,JoinLeague))
         self.BackBut.setObjectName("BackBut")
         self.horizontalLayout.addWidget(self.BackBut)
-        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.openConfirmLeague(L,JoinLeague))
+        self.Search = QtWidgets.QPushButton(self.verticalLayoutWidget, clicked = lambda: self.openConfirmLeague(L))
         self.Search.setObjectName("Search")
         self.horizontalLayout.addWidget(self.Search)
         self.verticalLayout.addLayout(self.horizontalLayout)

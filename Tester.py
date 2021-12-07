@@ -21,7 +21,7 @@ class MyApp(QWidget):
         layout.addWidget(self.button)
 
     def loadExcelData(self, excel_file_dir, worksheet_name):
-        df = pd.read_excel(excel_file_dir, worksheet_name)
+        df = pd.read_excel('Data1.xlsx', 'Sheet1')
         if df.size == 0:
             return
 
