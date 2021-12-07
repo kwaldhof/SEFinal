@@ -17,6 +17,7 @@ class Ui_ConfirmLeague(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window, L)
+        ConfirmLeague.hide()
         self.window.show()
         
     def back_main(self, ConfirmLeague, L):
