@@ -17,6 +17,7 @@ class Ui_LeagueFinder(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ConfirmLeague()
         self.ui.setupUi(self.window, L)
+        print("xxx")
         self.window.show()
 
     def back_main(self, L, JoinLeague):
