@@ -13,17 +13,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from ConfirmLeague import Ui_ConfirmLeague
 
 class Ui_LeagueFinder(object):
-<<<<<<< Updated upstream
     def openConfirmLeague(self, L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ConfirmLeague()
-        self.ui.setupUi(self.window,L)
-=======
-    def openConfirmLeague(self, JoinLeague, L):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_ConfirmLeague()
-        self.ui.setupUi(self.window, JoinLeague, L)
->>>>>>> Stashed changes
+        self.ui.setupUi(self.window, L)
         self.window.show()
 
     def back_main(self, L, JoinLeague):
