@@ -66,6 +66,8 @@ class Ui_ConfirmLeague(object):
         self.label_2.setText(_translate("ConfirmLeague", "Is this the correct league?"))
         self.YesBut.setText(_translate("ConfirmLeague", "Yes"))
         self.NoBut.setText(_translate("ConfirmLeague", "No"))
+        self.label.adjustSize()
+        self.label_2.adjustSize()
 
 
 if __name__ == "__main__":

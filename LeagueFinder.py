@@ -71,6 +71,7 @@ class Ui_LeagueFinder(object):
         self.BackBut.setText(_translate("JoinLeague", "Back"))
         self.Search.setText(_translate("JoinLeague", "Search"))
         self.label.setText(_translate("JoinLeague", "Enter League Code"))
+        self.label.adjustSize()
 
 if __name__ == "__main__":
     import sys
