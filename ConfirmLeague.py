@@ -14,9 +14,9 @@ from PlayerSignup import Ui_PlayerSignup
 
 class Ui_ConfirmLeague(object):
     def openPlayerSignup(self, ConfirmLeague, L):
-        self.window = QtWidgets.QConfirmLeague()
+        self.window = QtWidgets.QMainWindow()
         self.ui = Ui_PlayerSignup()
-        self.ui.setupUi(self.window, L, ConfirmLeague)
+        self.ui.setupUi(self.window, L)
         self.window.show()
         
     def back_main(self, ConfirmLeague, L):
@@ -42,7 +42,7 @@ class Ui_ConfirmLeague(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openPlayerSignup())
+        self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openPlayerSignup(ConfirmLeague,L))
         self.YesBut.setGeometry(QtCore.QRect(390, 200, 75, 23))
         self.YesBut.setObjectName("YesBut")
         self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: ConfirmLeague.close())

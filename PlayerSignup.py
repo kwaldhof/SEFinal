@@ -14,12 +14,12 @@ from LeagueView import Ui_LeagueView
 
 
 class Ui_PlayerSignup(object):
-    def openLeagueView(self):
+    def openLeagueView(self,L):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueView()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window,L)
         self.window.show()
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow,L):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -67,7 +67,7 @@ class Ui_PlayerSignup(object):
         self.Back = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
         self.Back.setGeometry(QtCore.QRect(270, 290, 75, 23))
         self.Back.setObjectName("Back")
-        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openLeagueView())
+        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openLeagueView(L))
         self.Confirm.setGeometry(QtCore.QRect(380, 290, 75, 23))
         self.Confirm.setObjectName("Confirm")
         MainWindow.setCentralWidget(self.centralwidget)
