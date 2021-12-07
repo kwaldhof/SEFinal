@@ -41,7 +41,7 @@ class Ui_LeagueView(object):
     def back_main(self, L, LeagueView):
         L.show()
         LeagueView.hide()
-    def setupUi(self,LeagueView,L):
+    def setupUi(self,LeagueView):
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
         font = QtGui.QFont()
@@ -95,7 +95,7 @@ class Ui_LeagueView(object):
                 tableItem = QtWidgets.QTableWidgetItem(str(value))
                 self.tableWidget.setItem(row[0], col_index, tableItem)
 
-        self.tableWidget.setColumnWidth(2, 300)
+        self.tableWidget.setColumnWidth(1, 125)
         self.label_3 = QtWidgets.QLabel(self.tab)
         self.label_3.setGeometry(QtCore.QRect(150, 30, 151, 31))
         font = QtGui.QFont()
@@ -156,6 +156,10 @@ class Ui_LeagueView(object):
                     value = '{0:0,.0f}'.format(value)
                 tableItem = QtWidgets.QTableWidgetItem(str(value))
                 self.tableWidget_2.setItem(row[0], col_index, tableItem)
+        self.tableWidget_2.setColumnWidth(1, 50)
+        self.tableWidget_2.setColumnWidth(2, 50)
+        self.tableWidget_2.setColumnWidth(3, 50)
+
         self.label_2 = QtWidgets.QLabel(self.tab_3)
         self.label_2.setGeometry(QtCore.QRect(160, 30, 141, 41))
         font = QtGui.QFont()
