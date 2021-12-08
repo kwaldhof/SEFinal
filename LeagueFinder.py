@@ -18,7 +18,7 @@ class Ui_LeagueFinder(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ConfirmLeague()
         self.ui.setupUi(self.window, L, LeagueJoiner)
-        leagueName = Backend.codeReturn(int(self.CodeEntry.text()))
+        leagueName = Backend.league_Finder(int(self.CodeEntry.text()))
         self.ui.label.setText(leagueName)
         self.window.show()
         LeagueJoiner.hide()

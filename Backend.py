@@ -48,13 +48,11 @@ def create_league(League_Name,Org_Name_input,Sport_input):
 
     writer.save()
 
-def codeReturn(code):
-    data = pd.read_excel ('Data1.xlsx', 'ViewLeagueName') #place "r" before the path string to address special character, such as '\'. Don't forget to put the file name at the end of the path + '.xlsx'
-    teamName = list(data['TeamName'])
-    codeData = list(data['TeamCode'])
-    for x in codeData:
-        if code == x:
-            return teamName[x-1]
+def league_Finder(code):
+    League = pd.read_excel ('Data1.xlsx', 'League') #place "r" before the path string to address special character, such as '\'. Don't forget to put the file name at the end of the path + '.xlsx'
+    for x in range(len(League)):
+        if code == League.at[x,"League_ID"]:
+            return League.at[x,"League_Name"]
 
 
 def teamNames():
