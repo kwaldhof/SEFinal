@@ -43,6 +43,12 @@ def codeReturn(code):
             return teamName[x-1]
 
 
+def teamNames():
+    data = pd.read_excel ('Data1.xlsx', 'ViewTeams')
+    teamList = list(data['TeamName'])
+    return teamList
+
+
 
 
 

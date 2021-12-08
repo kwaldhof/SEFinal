@@ -9,9 +9,26 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
+from openpyxl import load_workbook
+from pandas.core import series
+import numpy as np
 
 
 class Ui_CreateTeam(object):
+    def createTeam(self):
+        fname = "Data1.xlsx"
+        data = pd.read_excel(fname,"ViewTeams") #read the excel file
+        new_data = [[self.TeamName.text(), 1]] #Fetching new record from the frontend (right now I am just set up a record)
+        df2 = pd.DataFrame(new_data, columns=['Team Name', 'Player Count'])# Convert this new record to dataframe
+        data = data.append(df2,ignore_index=True)#append to the data we got from the excel
+        book = load_workbook(fname)
+        writer = pd.ExcelWriter(fname,engine = 'openpyxl')
+        writer.book = book
+        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)#trying to set up not overwrite the excel
+        data.to_excel(writer,sheet_name="ViewTeams",index=False)#push the data to the excel
+        writer.save()
+
     def setupUi(self, CreateTeam):
         CreateTeam.setObjectName("CreateTeam")
         CreateTeam.resize(493, 233)
@@ -38,7 +55,7 @@ class Ui_CreateTeam(object):
         font.setPointSize(12)
         self.FreeAgent.setFont(font)
         self.FreeAgent.setObjectName("FreeAgent")
-        self.Confirm = QtWidgets.QPushButton(self.centralwidget)
+        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: [self.createTeam(), CreateTeam.hide()])
         self.Confirm.setGeometry(QtCore.QRect(250, 150, 75, 23))
         self.Confirm.setObjectName("Confirm")
         self.Cancel = QtWidgets.QPushButton(self.centralwidget)
