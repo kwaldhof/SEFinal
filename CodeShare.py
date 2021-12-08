@@ -48,6 +48,8 @@ class Ui_CodeShare(object):
         CodeShare.setWindowTitle(_translate("CodeShare", "CodeShare"))
         self.label.setText(_translate("CodeShare", "Share this code with your players:"))
         self.JoinCode.setText(_translate("CodeShare", "153267"))
+        self.label.adjustSize()
+        self.JoinCode.adjustSize()
 
 
 if __name__ == "__main__":
