@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pandas as pd
+
 
 
 class Ui_TeamJoiner(object):
@@ -26,10 +28,11 @@ class Ui_TeamJoiner(object):
         self.TeamList = QtWidgets.QComboBox(self.centralwidget)
         self.TeamList.setGeometry(QtCore.QRect(290, 130, 81, 21))
         self.TeamList.setObjectName("TeamList")
-        self.TeamList.addItem("")
-        self.TeamList.addItem("")
-        self.TeamList.addItem("")
-        self.TeamList.addItem("")
+        data = pd.read_excel ('Data1.xlsx', 'ViewTeams') #place "r" before the path string to address special character, such as '\'. Don't forget to put the file name at the end of the path + '.xlsx'
+        teamName = list(data['Team Name'])
+        for x in teamName:
+            self.TeamList.addItem(x)
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(180, 130, 101, 21))
         font = QtGui.QFont()
@@ -58,10 +61,6 @@ class Ui_TeamJoiner(object):
         _translate = QtCore.QCoreApplication.translate
         TeamJoiner.setWindowTitle(_translate("TeamJoiner", "MainWindow"))
         self.label.setText(_translate("TeamJoiner", "Join a Team"))
-        self.TeamList.setItemText(0, _translate("TeamJoiner", "Team1"))
-        self.TeamList.setItemText(1, _translate("TeamJoiner", "Team2"))
-        self.TeamList.setItemText(2, _translate("TeamJoiner", "Team3"))
-        self.TeamList.setItemText(3, _translate("TeamJoiner", "Team4"))
         self.label_2.setText(_translate("TeamJoiner", "Select a Team"))
         self.Confirm.setText(_translate("TeamJoiner", "Confirm"))
         self.Back.setText(_translate("TeamJoiner", "Back"))
