@@ -17,8 +17,6 @@ writer = pd.ExcelWriter(fname,engine = 'openpyxl')
 writer.book = book
 writer.sheets = dict((ws.title, ws) for ws in book.worksheets)#trying to set up not overwrite the excel
 
-
-
 data.to_excel(writer,sheet_name="Sheet2",index=False)#push the data to the excel
 
 writer.save()
