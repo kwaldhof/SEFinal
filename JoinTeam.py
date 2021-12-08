@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pandas as pd
 
+import Backend
 
 
 class Ui_TeamJoiner(object):
@@ -28,8 +29,7 @@ class Ui_TeamJoiner(object):
         self.TeamList = QtWidgets.QComboBox(self.centralwidget)
         self.TeamList.setGeometry(QtCore.QRect(290, 130, 81, 21))
         self.TeamList.setObjectName("TeamList")
-        data = pd.read_excel ('Data1.xlsx', 'ViewTeams') #place "r" before the path string to address special character, such as '\'. Don't forget to put the file name at the end of the path + '.xlsx'
-        teamName = list(data['Team Name'])
+        teamName = Backend.teamNames()
         for x in teamName:
             self.TeamList.addItem(x)
 
