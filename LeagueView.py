@@ -44,7 +44,6 @@ class Ui_LeagueView(object):
 
 
     def setupUi(self,LeagueView,L):
-        self.league_name = "" #get the league name from the confirm league window
 
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
@@ -61,7 +60,7 @@ class Ui_LeagueView(object):
         font.setWeight(75)
         self.LeagueName_label.setFont(font)
         self.LeagueName_label.setObjectName("label")
-        self.LeagueName_label.setText(self.league_name)
+        # self.LeagueName_label.setText(self.league_name)
 
         self.Tabs = QtWidgets.QTabWidget(self.centralwidget)
         self.Tabs.setGeometry(QtCore.QRect(90, 150, 461, 461))

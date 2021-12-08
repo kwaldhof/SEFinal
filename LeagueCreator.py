@@ -20,18 +20,19 @@ class Ui_CreateLeague(object):
         self.Ad_username = str(self.userName.text())
         self.Ad_pw = str(self.password.text())
         check = Backend.check_aduser(self.Ad_username,self.Ad_pw)
-        if check == True:
+        if check == False:
+            self.info1.setText("Please check the Username and Password")
+            print(check)
+        else:
             self.window = QtWidgets.QMainWindow()
             self.Confirm_ui = Ui_LeagueConfirm()
             self.Confirm_ui.setupUi(self.window,L,LeagueCreator)
             self.Confirm_ui
             self.window.show()
             self.Confirm_ui.league_name = self.league_Name
-            
+            self.Confirm_ui.user_name = Backend.get_aduser(self.Ad_username,self.Ad_pw)
+            self.Confirm_ui.selected_sport = str(self.selectedSport.currentText())
             LeagueCreator.hide()
-        else:
-            self.info1.setText("Please check the Username and Password")
-            print(check)
     
     def back_main(self, L, LeagueCreator):
         L.show()
@@ -163,11 +164,12 @@ class Ui_LeagueConfirm(object):
         self.LeagueView_ui.setupUi(self.window, main_w)
         self.window.show()
         self.LeagueView_ui.LeagueName_label.setText(self.league_name)
+        League_Name = self.league_name
+        Org_Name_input = self.user_name
+        Sport_input = self.selected_sport
+        Backend.create_league(League_Name,Org_Name_input,Sport_input)
         LeagueConfirm.hide()
-        self.create_league()
-        
-    def create_league(self):
-        print("xxxxx")
+        # self.create_league()
     
     def open_LeagueCreator(self,LeagueConfirm,LeagueCreator):
         LeagueCreator.show()
@@ -175,6 +177,8 @@ class Ui_LeagueConfirm(object):
 
     def setupUi(self, LeagueConfirm,L,LeagueCreator):
         self.league_name = "" #get the league name from the creator league window
+        self.user_name = ""
+        self.selected_sport = ""
 
         LeagueConfirm.setObjectName("LeagueConfirm")
         LeagueConfirm.resize(800, 600)
