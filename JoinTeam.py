@@ -14,6 +14,13 @@ import pandas as pd
 
 
 class Ui_TeamJoiner(object):
+    def incPlayerCount(self, teamSelection):
+        data = pd.read_excel ('Data1.xlsx', 'ViewTeams') #place "r" before the path string to address special character, such as '\'. Don't forget to put the file name at the end of the path + '.xlsx'
+        teamName = list(data['Team Name'])
+        playerCount = list(data['Player Count'])
+        for x in teamName:
+            if teamSelection == x:
+                print(playerCount[x])
     def setupUi(self, TeamJoiner):
         TeamJoiner.setObjectName("TeamJoiner")
         TeamJoiner.resize(560, 319)
@@ -32,14 +39,13 @@ class Ui_TeamJoiner(object):
         teamName = list(data['Team Name'])
         for x in teamName:
             self.TeamList.addItem(x)
-
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(180, 130, 101, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.Confirm = QtWidgets.QPushButton(self.centralwidget)
+        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.incPlayerCount(self.TeamList.currentText()))
         self.Confirm.setGeometry(QtCore.QRect(300, 180, 75, 23))
         self.Confirm.setObjectName("Confirm")
         self.Back = QtWidgets.QPushButton(self.centralwidget)
