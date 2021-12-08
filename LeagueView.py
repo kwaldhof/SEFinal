@@ -41,7 +41,11 @@ class Ui_LeagueView(object):
     def back_main(self, L, LeagueView):
         L.show()
         LeagueView.hide()
+
+
     def setupUi(self,LeagueView,L):
+        self.league_name = "" #get the league name from the confirm league window
+
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
         font = QtGui.QFont()

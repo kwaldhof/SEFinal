@@ -7,7 +7,6 @@ def check_aduser (user_name,user_password):
     username_lsit = df["Username"]
     userpw_list = []
     userpw_list = df["Password"]
-    print(list(userpw_list))
     if user_name in list(username_lsit):
         if user_password in list(userpw_list):
             return True
