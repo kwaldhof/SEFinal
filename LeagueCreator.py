@@ -16,8 +16,7 @@ import Backend
 class Ui_CreateLeague(object):
     def LeagueConfirmation(self, L, LeagueCreator):
         
-        self.league_Name = ""
-
+        self.league_Name = str(self.leagueName_Input.text())
         self.Ad_username = str(self.userName.text())
         self.Ad_pw = str(self.password.text())
         check = Backend.check_aduser(self.Ad_username,self.Ad_pw)
@@ -27,6 +26,7 @@ class Ui_CreateLeague(object):
             self.Confirm_ui.setupUi(self.window,L,LeagueCreator)
             self.Confirm_ui
             self.window.show()
+            self.Confirm_ui.league_name = self.league_Name
             
             LeagueCreator.hide()
         else:
@@ -72,9 +72,9 @@ class Ui_CreateLeague(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
-        Ui_CreateLeague.leagueName_Label = QtWidgets.QLineEdit(self.centralwidget)
-        self.leagueName_Label.setGeometry(QtCore.QRect(380, 90, 113, 20))
-        self.leagueName_Label.setObjectName("leagueName")
+        Ui_CreateLeague.leagueName_Input = QtWidgets.QLineEdit(self.centralwidget)
+        self.leagueName_Input.setGeometry(QtCore.QRect(380, 90, 113, 20))
+        self.leagueName_Input.setObjectName("leagueName")
         Ui_CreateLeague.userName = QtWidgets.QLineEdit(self.centralwidget)
         self.userName.setGeometry(QtCore.QRect(380, 170, 113, 20))
         self.userName.setObjectName("userName")
@@ -159,9 +159,10 @@ class Ui_LeagueConfirm(object):
 
     def openLeagueView(self,main_w,LeagueConfirm):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_LeagueView()
-        self.ui.setupUi(self.window, main_w)
+        self.LeagueView_ui = Ui_LeagueView()
+        self.LeagueView_ui.setupUi(self.window, main_w)
         self.window.show()
+        self.LeagueView_ui.LeagueName_label.setText(self.league_name)
         LeagueConfirm.hide()
         self.create_league()
         
@@ -173,6 +174,8 @@ class Ui_LeagueConfirm(object):
         LeagueConfirm.hide()
 
     def setupUi(self, LeagueConfirm,L,LeagueCreator):
+        self.league_name = "" #get the league name from the creator league window
+
         LeagueConfirm.setObjectName("LeagueConfirm")
         LeagueConfirm.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(LeagueConfirm)
@@ -240,7 +243,7 @@ class Ui_LeagueConfirm(object):
         _translate = QtCore.QCoreApplication.translate
         LeagueConfirm.setWindowTitle(_translate("LeagueConfirm", "MainWindow"))
         self.label_2.setText(_translate("LeagueConfirm", "League Creator"))
-        self.LeagueName.setText(_translate("LeagueConfirm", "League Name: " + Ui_CreateLeague.leagueName_Label.text()))
+        self.LeagueName.setText(_translate("LeagueConfirm", "League Name: " + Ui_CreateLeague.leagueName_Input.text()))
         self.Username.setText(_translate("LeagueConfirm", "Admin Username: "+ Ui_CreateLeague.userName.text()))
         self.SportName.setText(_translate("LeagueConfirm", "Sport: " + Ui_CreateLeague.selectedSport.currentText()))
         self.Password.setText(_translate("LeagueConfirm", "Admin Password: "+ Ui_CreateLeague.password.text()))
