@@ -17,13 +17,19 @@ class Ui_ConfirmLeague(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_PlayerSignup()
         self.ui.setupUi(self.window, L)
+        self.ui.label.setText(str(self.label.text()))
+        ConfirmLeague.hide()
         self.window.show()
         
     def back_main(self, ConfirmLeague, L):
         L.show()
         ConfirmLeague.hide()
 
-    def setupUi(self, ConfirmLeague, L):
+    def back_LeagueFinder(self, ConfirmLeague, JoinLeague):
+        ConfirmLeague.hide()
+        JoinLeague.show()
+
+    def setupUi(self, ConfirmLeague, L, JoinLeague):
         ConfirmLeague.setObjectName("ConfirmLeague")
         ConfirmLeague.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(ConfirmLeague)
@@ -45,7 +51,7 @@ class Ui_ConfirmLeague(object):
         self.YesBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.openPlayerSignup(ConfirmLeague,L))
         self.YesBut.setGeometry(QtCore.QRect(390, 200, 75, 23))
         self.YesBut.setObjectName("YesBut")
-        self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: ConfirmLeague.close())
+        self.NoBut = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.back_LeagueFinder(ConfirmLeague, JoinLeague))
         self.NoBut.setGeometry(QtCore.QRect(290, 200, 75, 23))
         self.NoBut.setObjectName("NoBut")
         ConfirmLeague.setCentralWidget(self.centralwidget)

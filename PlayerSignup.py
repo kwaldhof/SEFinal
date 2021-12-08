@@ -14,15 +14,22 @@ from LeagueView import Ui_LeagueView
 
 
 class Ui_PlayerSignup(object):
-    def openLeagueView(self,L):
+    def openLeagueView(self,L, PlayerSignup):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueView()
         self.ui.setupUi(self.window,L)
+        self.ui.label.setText(str(self.label.text()))
         self.window.show()
-    def setupUi(self, MainWindow,L):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        PlayerSignup.hide()
+
+    def back_main(self, L, PlayerSignup):
+        L.show()
+        PlayerSignup.hide()
+
+    def setupUi(self, PlayerSignup,L):
+        PlayerSignup.setObjectName("PlayerSignup")
+        PlayerSignup.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(PlayerSignup)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(310, 80, 141, 31))
@@ -64,23 +71,23 @@ class Ui_PlayerSignup(object):
         self.Age = QtWidgets.QSpinBox(self.centralwidget)
         self.Age.setGeometry(QtCore.QRect(340, 200, 42, 22))
         self.Age.setObjectName("Age")
-        self.Back = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: MainWindow.close())
+        self.Back = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.back_main(L, PlayerSignup))
         self.Back.setGeometry(QtCore.QRect(270, 290, 75, 23))
         self.Back.setObjectName("Back")
-        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openLeagueView(L))
+        self.Confirm = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.openLeagueView(L, PlayerSignup))
         self.Confirm.setGeometry(QtCore.QRect(380, 290, 75, 23))
         self.Confirm.setObjectName("Confirm")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        PlayerSignup.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(PlayerSignup)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        PlayerSignup.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(PlayerSignup)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        PlayerSignup.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(PlayerSignup)
+        QtCore.QMetaObject.connectSlotsByName(PlayerSignup)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

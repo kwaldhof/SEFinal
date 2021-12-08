@@ -15,16 +15,19 @@ import Backend
 
 class Ui_CreateLeague(object):
     def LeagueConfirmation(self, L, LeagueCreator):
-        # self.league_Name = str(self.leagueName.text())
-        # self.sport = str(self.selectedSport.currentText())
+        
+        self.league_Name = ""
+
         self.Ad_username = str(self.userName.text())
         self.Ad_pw = str(self.password.text())
         check = Backend.check_aduser(self.Ad_username,self.Ad_pw)
         if check == True:
             self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_LeagueConfirm()
-            self.ui.setupUi(self.window,L,LeagueCreator)
+            self.Confirm_ui = Ui_LeagueConfirm()
+            self.Confirm_ui.setupUi(self.window,L,LeagueCreator)
+            self.Confirm_ui
             self.window.show()
+            
             LeagueCreator.hide()
         else:
             self.info1.setText("Please check the Username and Password")
@@ -69,9 +72,9 @@ class Ui_CreateLeague(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
 
-        Ui_CreateLeague.leagueName = QtWidgets.QLineEdit(self.centralwidget)
-        self.leagueName.setGeometry(QtCore.QRect(380, 90, 113, 20))
-        self.leagueName.setObjectName("leagueName")
+        Ui_CreateLeague.leagueName_Label = QtWidgets.QLineEdit(self.centralwidget)
+        self.leagueName_Label.setGeometry(QtCore.QRect(380, 90, 113, 20))
+        self.leagueName_Label.setObjectName("leagueName")
         Ui_CreateLeague.userName = QtWidgets.QLineEdit(self.centralwidget)
         self.userName.setGeometry(QtCore.QRect(380, 170, 113, 20))
         self.userName.setObjectName("userName")
@@ -237,7 +240,7 @@ class Ui_LeagueConfirm(object):
         _translate = QtCore.QCoreApplication.translate
         LeagueConfirm.setWindowTitle(_translate("LeagueConfirm", "MainWindow"))
         self.label_2.setText(_translate("LeagueConfirm", "League Creator"))
-        self.LeagueName.setText(_translate("LeagueConfirm", "League Name: " + Ui_CreateLeague.leagueName.text()))
+        self.LeagueName.setText(_translate("LeagueConfirm", "League Name: " + Ui_CreateLeague.leagueName_Label.text()))
         self.Username.setText(_translate("LeagueConfirm", "Admin Username: "+ Ui_CreateLeague.userName.text()))
         self.SportName.setText(_translate("LeagueConfirm", "Sport: " + Ui_CreateLeague.selectedSport.currentText()))
         self.Password.setText(_translate("LeagueConfirm", "Admin Password: "+ Ui_CreateLeague.password.text()))
