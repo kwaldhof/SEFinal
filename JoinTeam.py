@@ -21,7 +21,8 @@ class Ui_TeamJoiner(object):
         playerCount = list(data['Player Count'])
         for x in teamName:
             if teamSelection == x:
-                print(playerCount[x])
+                print(x)
+                
     def setupUi(self, TeamJoiner):
         TeamJoiner.setObjectName("TeamJoiner")
         TeamJoiner.resize(560, 319)
