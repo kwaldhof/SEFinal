@@ -15,13 +15,16 @@ import Backend
 
 class Ui_LeagueFinder(object):
     def openConfirmLeague(self, L, LeagueJoiner):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_ConfirmLeague()
-        self.ui.setupUi(self.window, L, LeagueJoiner)
-        leagueName = Backend.codeReturn(int(self.CodeEntry.text()))
-        self.ui.label.setText(leagueName)
-        self.window.show()
-        LeagueJoiner.hide()
+        try:
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_ConfirmLeague()
+            self.ui.setupUi(self.window, L, LeagueJoiner)
+            leagueName = Backend.league_Finder(int(self.CodeEntry.text()))
+            self.ui.label.setText(leagueName)
+            self.window.show()
+            LeagueJoiner.hide()
+        except:
+            self.Infor.setText("Please check the input")
 
     def back_main(self, L, JoinLeague):
         L.show()
@@ -51,11 +54,19 @@ class Ui_LeagueFinder(object):
         self.horizontalLayout.addWidget(self.Search)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(290, 200, 171, 31))
+        self.label.setGeometry(QtCore.QRect(290, 190, 171, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label.setFont(font)
         self.label.setObjectName("label")
+
+        self.Infor = QtWidgets.QLabel(self.centralwidget)
+        self.Infor.setGeometry(QtCore.QRect(290, 220, 171, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.Infor.setFont(font)
+        self.Infor.setObjectName("label")
+
         JoinLeague.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JoinLeague)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -74,6 +85,7 @@ class Ui_LeagueFinder(object):
         self.BackBut.setText(_translate("JoinLeague", "Back"))
         self.Search.setText(_translate("JoinLeague", "Search"))
         self.label.setText(_translate("JoinLeague", "Enter League Code"))
+        self.Infor.setText(_translate("JoinLeague", ""))
         self.label.adjustSize()
 
 if __name__ == "__main__":

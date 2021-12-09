@@ -41,7 +41,10 @@ class Ui_LeagueView(object):
     def back_main(self, L, LeagueView):
         L.show()
         LeagueView.hide()
-    def setupUi(self,LeagueView):
+
+
+    def setupUi(self,LeagueView,L):
+
         LeagueView.setObjectName("LeagueView")
         LeagueView.resize(610, 713)
         font = QtGui.QFont()
@@ -49,14 +52,16 @@ class Ui_LeagueView(object):
         LeagueView.setFont(font)
         self.centralwidget = QtWidgets.QWidget(LeagueView)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(210, 60, 251, 71))
+        self.LeagueName_label = QtWidgets.QLabel(self.centralwidget)
+        self.LeagueName_label.setGeometry(QtCore.QRect(210, 60, 251, 71))
         font = QtGui.QFont()
         font.setPointSize(25)
         font.setBold(True)
         font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
+        self.LeagueName_label.setFont(font)
+        self.LeagueName_label.setObjectName("label")
+        # self.LeagueName_label.setText(self.league_name)
+
         self.Tabs = QtWidgets.QTabWidget(self.centralwidget)
         self.Tabs.setGeometry(QtCore.QRect(90, 150, 461, 461))
         self.Tabs.setObjectName("Tabs")
@@ -221,7 +226,7 @@ class Ui_LeagueView(object):
     def retranslateUi(self, LeagueView):
         _translate = QtCore.QCoreApplication.translate
         LeagueView.setWindowTitle(_translate("LeagueView", "MainWindow"))
-        self.label.setText(_translate("LeagueView", "League Name"))
+        self.LeagueName_label.setText(_translate("LeagueView", "League Name"))
         self.label_4.setText(_translate("LeagueView", "Welcome Information"))
         self.Tabs.setTabText(self.Tabs.indexOf(self.Welcome), _translate("LeagueView", "Welcome"))
         self.label_3.setText(_translate("LeagueView", "Team List"))

@@ -18,7 +18,7 @@ class Ui_PlayerSignup(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_LeagueView()
         self.ui.setupUi(self.window,L)
-        self.ui.label.setText(str(self.label.text()))
+        self.ui.LeagueName_label.setText(str(self.label.text()))
         self.window.show()
         PlayerSignup.hide()
 

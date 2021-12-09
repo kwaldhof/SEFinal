@@ -30,6 +30,8 @@ class Ui_ConfirmLeague(object):
         JoinLeague.show()
 
     def setupUi(self, ConfirmLeague, L, JoinLeague):
+        self.league_name = "" #get the league name from the creator league window
+
         ConfirmLeague.setObjectName("ConfirmLeague")
         ConfirmLeague.resize(800, 600)
         self.centralwidget = QtWidgets.QWidget(ConfirmLeague)
