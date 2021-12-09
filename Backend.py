@@ -32,11 +32,13 @@ def create_league(League_Name,Org_Name_input,Sport_input):
     for j in range(len(Organizer)):
         if Org_Name_input == Organizer.at[j,"Org_Name"]:
             Organizer_ID = (Organizer.at[j,"Org_ID"])
-
+    #read the excel file
     data = pd.read_excel(fname,"League") #read the excel file
-    new_data = [[len(data)+1,League_Name,Organizer_ID,Sport_ID,0]] #Fetching new record from the frontend (right now I am just set up a record)
-    df2 = pd.DataFrame(new_data, columns=['League_ID',"League_Name","Organizer","Sport", "Games"])# Convert this new record to dataframe
-    data = data.append(df2,ignore_index=True)#append to the data we got from the excel
+    new_data = [[len(data)+1,League_Name,Organizer_ID,Sport_ID,0]] 
+    # Convert this new record to dataframe
+    df2 = pd.DataFrame(new_data, columns=['League_ID',"League_Name","Organizer","Sport", "Games"])
+    #append to the data we got from the excel
+    data = data.append(df2,ignore_index=True)
     print(data)
 
     book = load_workbook(fname)
